@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Kurama</title>
+<link rel="stylesheet" type="text/css" href="estilos.css">
+<script>
+  function spoilerkurama(){
+    alert('Cuidado, puede sufrir graves spoilers si lee esta informacion');
+   }
+   function mostrar(){
+  document.getElementById('imgsasuke').innerHTML = '<img src="imagenes/sasuke.jpg">';
+  }
+ 
+  function explicacion(){
+       alert('Este es un juego de dados donde se tiran 3 dados y si alguno de ellos coincide con tu número asignado sumas un punto. También  si 2 dados suman el valor del numero asignado, sumas un punto. Si tenes 3 dados iguales tenes 5 puntos pero OJO, si no sacas ningún punto pierdes el turno y juega Naruto. Y si te pasas de los 15 puntos también pierdes el turno y volves al valor anterior.');
+   }
+   function exp2(){
+     alert('Este es un juego de preguntas con posibilidad de responder con verdadero o falso.');
+   }
+
+</script>
+</head>
+<body>
+  <header>
+    <h1 class="titulo">Naruto</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a onclick="exp2()" href="juego1.html">Juego1</a></li>
+        <li><a onclick="explicacion()" href="juego2.html">Juego2</a></li>
+        <li><a onclick="spoilerkurama()" href="kurama.html">Kurama</a></li>
+        <li><a href="sasuke.html">Sasuke</a></li>
+      </ul>
+    </nav>
+  </header>
+  <div class="caja">
+   <section class="columnas">
+   <article>
+    <p>
+      Sasuke Uchiha (うちはサスケ, Uchiha Sasuke) es el deuteragonista de la serie y uno de los supervivientes del Clan Uchiha. Es hijo de Fugaku Uchiha y Mikoto Uchiha, hermano de Itachi Uchiha, así como la Reencarnación actual de Indra Ōtsutsuki. A pesar de crear relaciones con los miembros del Equipo Kakashi, Sasuke decidió desertar de Konohagakure en busca del poder necesario para vengar a su clan y asesinar a Itachi.
+    </p>
+   </article>
+   <article>
+    <p>
+      Luego de descubrir la verdad de su hermano, fundó Taka, fue un aliado temporal de Akatsuki y se convirtió en un criminal internacional. Luego de hablar con Hashirama Senju decidió seguir el sueño de su hermano, colaborar con las Fuerzas Aliadas Shinobi y se colocó como meta realizar una revolución en el Mundo Shinobi. Después de la Cuarta Guerra Mundial Shinobi, terminaría cediendo ante la mentalidad de Naruto Uzumaki, regresando a la aldea y dedicando su vida a protegerla y a sus habitantes, pasando a ser referido como el Kage de Soporte (支う影, Sasaukage; literalmente: Sombra de Soporte). Igualmente, se volvió el esposo de Sakura Haruno y padre de Sarada Uchiha.
+    </p>
+   </article>
+   </section>
+    <button onclick="mostrar()">Mostrar imagen</button>
+    <p id="imgsasuke"></p>
+  </div>
+</body>
+    </html>

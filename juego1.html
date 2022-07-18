@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Juego 1</title>
+<link rel="stylesheet" type="text/css" href="estilos.css">
+<script>
+    function spoilerkurama(){
+    alert('Cuidado, puede sufrir graves spoilers si lee esta informacion');
+   }
+
+   function spoilersasuke(){
+    alert('Cuidado, puede sufrir graves spoilers si lee esta informacion');
+   }
+   function explicacion(){
+       alert('Este es un juego de dados donde se tiran 3 dados y si alguno de ellos coincide con tu número asignado sumas un punto. También  si 2 dados suman el valor del numero asignado, sumas un punto. Si tenes 3 dados iguales tenes 5 puntos pero OJO, si no sacas ningún punto pierdes el turno y juega Naruto. Y si te pasas de los 15 puntos también pierdes el turno y volves al valor anterior.');
+   }
+</script>
+<!--Funcionamiento juego-->
+<script>
+
+ var resultadofinal;
+ var correctas = 0;
+ var correctassegundonivel = 0;
+ var correctastercernivel=0;
+
+//desaparece el primer nivel y hace visible el segundo
+ function nextlevel(){
+  document.getElementById('quiz').style.display="none";
+  document.getElementById('button').style.display="none";
+  document.getElementById('quiz2').style.display="block";
+  document.getElementById('button2').style.display="block";
+
+}
+//borra el segundo nivel y muestra el tercero
+function lastlevel(){
+  document.getElementById('quiz2').style.display="none";
+  document.getElementById('button2').style.display="none";
+  document.getElementById('quiz3').style.display="block";
+  document.getElementById('button3').style.display="block";
+}
+ //borra el ultimo nivel y muestra la pregunta final
+function lastquestion(){
+  document.getElementById('quiz3').style.display="none";
+  document.getElementById('button3').style.display="none";
+  document.getElementById('ultimapregunta').style.display="block";
+  document.getElementById('ultimoboton').style.display="block";
+}
+ //compara las respuestas y suma los puntos
+
+  function check(){
+
+  var question1 = document.quiz.question1.value;
+  var question2 = document.quiz.question2.value;
+  var question3 = document.quiz.question3.value;
+  var question4 = document.quiz.question4.value;
+  var question5 = document.quiz.question5.value;
+  var question6 = document.quiz.question6.value;
+
+
+if (question1 == "verdadero") {
+  correctas += 5;
+}
+if (question2 == "falso") {
+  correctas += 5;
+}
+if (question3 == "verdadero") {
+  correctas += 5;
+}
+if (question4 == "falso") {
+  correctas += 5;
+}
+if (question5 == "verdadero") {
+  correctas += 5;
+}
+if(question6 == "verdadero"){
+  correctas += 5;
+}
+
+alert('Lograste  ' + correctas + ' puntos');
+
+if(correctas >= 15){
+  alert('Felicitaciones, podes pasar al siguiente nivel');
+  nextlevel();
+}
+
+}
+
+ //compara las respuestas y suma los puntos del segundo nivel
+
+ function checksecondlevel(){
+
+var question21 = document.quiz2.question21.value;
+var question22 = document.quiz2.question22.value;
+var question23 = document.quiz2.question23.value;
+var question24 = document.quiz2.question24.value;
+var question25 = document.quiz2.question25.value;
+var question26 = document.quiz2.question26.value;
+
+
+if (question21 == "verdadero") {
+  correctassegundonivel+=10;
+}
+if (question22 == "falso") {
+  correctassegundonivel+=10;
+}
+if (question23 == "verdadero") {
+  correctassegundonivel+=10;
+}
+if (question24 == "falso") {
+  correctassegundonivel+=10;
+}
+if (question25 == "verdadero") {
+  correctassegundonivel+=10;
+}
+if(question26 == "verdadero"){
+  correctassegundonivel+=10;
+}
+
+
+//acceso al tercer nivel
+if(correctassegundonivel <= 30){
+  alert('lograste ' + correctassegundonivel + ' puntos');
+  resultadofinal = correctas + correctassegundonivel;
+  alert('Lo sentimos, no pudiste ganar el juego y tu resultado final fue ' + resultadofinal); 
+}else{
+  alert('lograste ' + correctassegundonivel + ' puntos');
+  alert('Felicitaciones, podes pasar al ultimo nivel');
+  lastlevel();
+}
+
+}
+
+function checklastlevel(){
+
+var question31 = document.quiz3.question31.value;
+var question32 = document.quiz3.question32.value;
+var question33 = document.quiz3.question33.value;
+var question34 = document.quiz3.question34.value;
+var question35 = document.quiz3.question35.value;
+var question36 = document.quiz3.question36.value;
+
+
+if (question31 == "verdadero") {
+  correctastercernivel+=20;
+}
+if (question32 == "falso") {
+  correctastercernivel+=20;
+}
+if (question33 == "verdadero") {
+  correctastercernivel+=20;
+}
+if (question34 == "falso") {
+  correctastercernivel+=20;
+}
+if (question35 == "verdadero") {
+  correctastercernivel+=20;
+}
+if(question36 == "verdadero"){
+  correctastercernivel+=20;
+}
+
+
+alert('Lograste ' + correctastercernivel + ' puntos');
+resultadofinal= correctas + correctassegundonivel + correctastercernivel;
+
+if(correctastercernivel >= 100){
+alert('Felicitaciones, pasaste el ultimo nivel. Tu puntaje final es ' + resultadofinal);
+}
+else{
+  alert('Lo sentimos, no pudiste ganar el juego, tu puntaje fue ' + resultadofinal);
+
+}
+if(correctastercernivel == 120){
+  alert('Lograste pasar el ultimo nivel sin errores, ahora tenes la posibilidad de duplicar tu puntaje con una ultima pregunta');
+  lastquestion();
+}
+}
+
+//funcion  para verificar la ultima pregunta y si es correcta duplicar el puntaje final
+function checklq(){
+
+  var lastq = document.ultimapregunta.preguntafinal.value;
+
+  if(lastq =="c"){
+    resultadofinal= resultadofinal * 2;
+    alert('Lo lograste! Tu puntaje final es ' + resultadofinal);
+    document.getElementById('ultimapregunta').style.display="none";
+    document.getElementById('ultimoboton').style.display="none";
+  }
+  else{
+    alert('No contestaste correctamente, tu puntaje sigue siendo ' + resultadofinal);
+  }
+}
+
+
+</script>
+</head>
+<body>
+  <header>
+    <h1 class="titulo">Naruto</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="juego1.html">Juego1</a></li>
+        <li><a onclick="explicacion()" href="juego2.html">Juego2</a></li>
+        <li><a onclick="spoilerkurama()" href="kurama.html">Kurama</a></li>
+        <li><a onclick="spoilersasuke()" href="sasuke.html">Sasuke</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section>
+   
+    <h1>Trivia</h1>
+
+    <!--Primer nivel-->
+
+<form id = "quiz" name = "quiz">
+
+
+<p>¿Los padres de Naruto se llaman Minato y Kushina?</p>
+<input type = "radio" id = "mc" name = "question1" value = "verdadero"> verdadero<br>
+<input type = "radio" id = "mc" name = "question1" value = "falso"> falso<br>
+
+<p>¿Kakashi Hatake es el sensei del aquipo 8? </p>
+<input type = "radio" id = "mc" name = "question2" value = "verdadero"> verdadero<br>
+<input type = "radio" id = "mc" name = "question2" value = "falso"> falso<br>
+
+<p>¿Sasuke es el mejor amigo de Naruto?</p>
+
+<input type = "radio" id = "mc" name = "question3" value = "verdadero"> verdadero<br>
+<input type = "radio" id = "mc" name = "question3" value = "falso"> falso<br>
+
+<p> ¿Naruto tiene al Hachibi en su interior?</p>
+
+<input type = "radio" id = "mc" name = "question4" value = "verdadero"> verdadero<br>
+<input type = "radio" id = "mc" name = "question4" value = "falso"> falso<br>
+
+<p> ¿El sueño de Naruto es ser Hokage?</p>
+
+<input type = "radio" id = "mc" name = "question5" value = "verdadero"> verdadero<br>
+<input type = "radio" id = "mc" name = "question5" value = "falso"> falso<br>
+
+<p> ¿Sakura fue aprendiz de Tsunade?</p>
+
+<input type = "radio" id = "mc" name = "question6" value = "verdadero"> verdadero<br>
+<input type = "radio" id = "mc" name = "question6" value = "falso"> falso<br>
+
+
+<input id = "button" type = "button" value = "Listo!" onclick = "check()">
+
+</form>
+
+<form id = "quiz2" name = "quiz2" style="display: none;">
+
+
+  <p>¿El rango jonin es mayor que Genin?</p>
+  <input type = "radio" id = "mc" name = "question21" value = "verdadero"> verdadero<br>
+  <input type = "radio" id = "mc" name = "question21" value = "falso"> falso<br>
+
+  <p>¿El primer usuario del Rasengan fue Kakashi? </p>
+  <input type = "radio" id = "mc" name = "question22" value = "verdadero"> verdadero<br>
+  <input type = "radio" id = "mc" name = "question22" value = "falso"> falso<br>
+
+  <p>¿Itachi es conocido por sus poderosos Genjutsus?</p>
+
+  <input type = "radio" id = "mc" name = "question23" value = "verdadero"> verdadero<br>
+  <input type = "radio" id = "mc" name = "question23" value = "falso"> falso<br>
+
+  <p>¿Gaara es de la aldea oculta de la niebla?</p>
+
+  <input type = "radio" id = "mc" name = "question24" value = "verdadero"> verdadero<br>
+  <input type = "radio" id = "mc" name = "question24" value = "falso"> falso<br>
+
+  <p>¿Los shuriken son armas ninjas?</p>
+
+  <input type = "radio" id = "mc" name = "question25" value = "verdadero"> verdadero<br>
+  <input type = "radio" id = "mc" name = "question25" value = "falso"> falso<br>
+
+  <p>¿El Sahringan es un Kekkei Genkai?</p>
+
+  <input type = "radio" id = "mc" name = "question26" value = "verdadero"> verdadero<br>
+  <input type = "radio" id = "mc" name = "question26" value = "falso"> falso<br>
+
+
+  <input id = "button2" type = "button" value = "Seguir!" style="display: none;" onclick = "checksecondlevel()">
+
+  </form>
+
+  <form id = "quiz3" name = "quiz3" style="display: none;">
+
+
+    <p>¿Sasuke puede usar el Amaterasu?</p>
+    <input type = "radio" id = "mc" name = "question31" value = "verdadero"> verdadero<br>
+    <input type = "radio" id = "mc" name = "question31" value = "falso"> falso<br>
+
+    <p>¿Naruto usa el Rinnegan? </p>
+    <input type = "radio" id = "mc" name = "question32" value = "verdadero"> verdadero<br>
+    <input type = "radio" id = "mc" name = "question32" value = "falso"> falso<br>
+
+    <p>¿Kakashi tiene un solo Sharingan?</p>
+
+    <input type = "radio" id = "mc" name = "question33" value = "verdadero"> verdadero<br>
+    <input type = "radio" id = "mc" name = "question33" value = "falso"> falso<br>
+
+    <p>¿Anbu es una organizacion criminal que quiere capturar a los Bijūs?</p>
+
+    <input type = "radio" id = "mc" name = "question34" value = "verdadero"> verdadero<br>
+    <input type = "radio" id = "mc" name = "question34" value = "falso"> falso<br>
+
+    <p>¿Kakashi es el sexto Hokage?</p>
+
+    <input type = "radio" id = "mc" name = "question35" value = "verdadero"> verdadero<br>
+    <input type = "radio" id = "mc" name = "question35" value = "falso"> falso<br>
+
+    <p>¿Naruto logra controlar a Kurama?</p>
+
+    <input type = "radio" id = "mc" name = "question36" value = "verdadero"> verdadero<br>
+    <input type = "radio" id = "mc" name = "question36" value = "falso"> falso<br>
+
+
+    <input id = "button3" type = "button" value = "Terminar!" style="display: none;" onclick = "checklastlevel()">
+  </form>
+
+    <form id="ultimapregunta" name="ultimapregunta" style="display: none;">
+
+      <p>¿Quién fue el personaje que realmente estaba detrás del plan que causo la tercera guerra mundial ninja?</p>
+
+      <input type="radio" id="mc" name="preguntafinal" value="a">Madara<br>
+      <input type="radio" id="mc" name="preguntafinal" value="b">Kaguya<br>
+      <input type="radio" id="mc" name="preguntafinal" value="c">Zetsu negro<br>
+
+      <input id="ultimoboton" type="button" value="Terminar!" style="display: none;" onclick="checklq()">
+    </form>
+    <p id="congrats" ></p>
+  </section>
+</body>
+</html>

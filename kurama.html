@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Kurama</title>
+<link rel="stylesheet" type="text/css" href="estilos.css">
+<script>
+  function mostrar(){
+  document.getElementById('imgkurama').innerHTML = '<img src="imagenes/kurama.jpg">';}
+  
+  function spoilersasuke(){
+    alert('Cuidado, puede sufrir graves spoilers si lee esta informacion');
+  }
+  function explicacion(){
+       alert('Este es un juego de dados donde se tiran 3 dados y si alguno de ellos coincide con tu número asignado sumas un punto. También  si 2 dados suman el valor del numero asignado, sumas un punto. Si tenes 3 dados iguales tenes 5 puntos pero OJO, si no sacas ningún punto pierdes el turno y juega Naruto. Y si te pasas de los 15 puntos también pierdes el turno y volves al valor anterior.');
+   }
+   function exp2(){
+     alert('Este es un juego de preguntas con posibilidad de responder con verdadero o falso.');
+   }
+</script>
+</head>
+<body>
+  <header>
+    <h1 class="titulo">Naruto</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a onclick="exp2()" href="juego1.html">Juego1</a></li>
+        <li><a onclick="explicacion()" href="juego2.html">Juego2</a></li>
+        <li><a href="kurama.html">Kurama</a></li>
+        <li><a onclick="spoilersasuke()" href="sasuke.html">Sasuke</a></li>
+      </ul>
+    </nav>
+  </header>
+  <div class="caja">
+   <section class="columnas">
+   <article>
+    <p>
+      Kurama (九喇嘛, Kurama), también conocido como el Nueve Colas (九尾, Kyūbi) es una Bestia con Cola que se encuentra sellada dentro de Naruto Uzumaki, siendo considerada la más poderosa de las nueve bestias creadas por el Sabio de los Seis Caminos. A pesar que en la mayor parte de la serie, el chakra de Kurama estuvo dividido en dos partes, la mitad Yin y la mitad Yang, finalmente volvería a unificarse dentro de Naruto luego de los sucesos de la Cuarta Guerra Mundial Shinobi.
+    </p>
+  </article>
+    <article>
+  <p>
+      Al principio, el Nueve Colas quería matar a Naruto, pero pronto se dio cuenta de que compartirá el mismo destino que él siempre y cuando siga sellado en su interior, así que no tiene otra opción que cooperar con Naruto o morirá con él. Hace todo lo posible para preservar su propia vida, como se muestra cuando su chakra aparece cada vez que la vida de Naruto está en peligro. En muchas ocasiones, muestra un trato despectivo a Naruto diciéndole multitud de veces que sin él no puede hacer nada, llegando a enfurecerse cuando en la segunda parte del anime, Naruto decide rechazar su poder, aunque esto no es más que rabia de perder la oportunidad de usurpar el control sobre la mente y el cuerpo de Naruto y conseguir debilitar el sello. Tiene un odio profundo hacia el Clan Uchiha y su Sharingan, probablemente debido a las muchas veces que fue manipulado por Madara en el pasado. Incluso comentó que Sasuke Uchiha es muy similar a Madara, debido a su poder del Sharingan y su chakra oscuro y frío. Aunque también el odio del Nueve Colas abarca a toda la humanidad, ya que incluso Hashirama, Mito y Kushina han querido suprimir su poder debido a que lo consideraban muy peligroso. Sin embargo, Naruto ha sido diferente a todos ellos al prometerle eliminar todo el odio que él siente.
+      Se sabe que posee un sentimiento de odio a la humanidad, esto puede ser debido a que ha sido manipulado varias veces por estos o a su percepción mentido, pero durante el transcurso de la guerra, ha ido cambiando de opinión hasta el punto de entablar amistad con Naruto Uzumaki
+    </p>
+  </article>
+   </section>
+    <button onclick="mostrar()">Mostrar imagen</button>
+    <p id="imgkurama"></p>
+
+  </div>
+</body>
+    </html>

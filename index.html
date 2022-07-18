@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Inicio</title>
+<link rel="stylesheet" type="text/css" href="estilos.css">
+<script>
+   function spoilerkurama(){
+    alert('Cuidado, puede sufrir graves spoilers si lee esta informacion');
+   }
+
+   function spoilersasuke(){
+    alert('Cuidado, puede sufrir graves spoilers si lee esta informacion');
+   }
+   function explicacion(){
+       alert('Este es un juego de dados donde se tiran 3 dados y si alguno de ellos coincide con tu número asignado sumas un punto. También  si 2 dados suman el valor del numero asignado, sumas un punto. Si tenes 3 dados iguales tenes 5 puntos pero OJO, si no sacas ningún punto pierdes el turno y juega Naruto. Y si te pasas de los 15 puntos también pierdes el turno y volves al valor anterior.');
+   }
+   function exp2(){
+     alert('Este es un juego de preguntas con posibilidad de responder con verdadero o falso.');
+   }
+</script>
+</head>
+<body>
+  <header>
+      <h1 class="titulo">Naruto</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a onclick="exp2()" href="juego1.html">Juego1</a></li>
+        <li><a onclick="explicacion()" href="juego2.html">Juego2</a></li>
+        <li><a onclick="spoilerkurama()" href="kurama.html">Kurama</a></li>
+        <li><a onclick="spoilersasuke()" href="sasuke.html">Sasuke</a></li>
+
+      </ul>
+    </nav>
+  </header>
+  <div class="caja">
+    <section class="columnas">
+    <article>
+      <p>Naruto Uzumaki es un niño marginado en la aldea ninja en la que vive. En su interior reside el poder de una bestia que estuvo al borde de destruir el pueblo años atrás, el Kyubi, el zorro de nueve colas, lo que hace que nadie quiera acercarse a él por considerarlo maldito. Pese a su soledad y su tristeza, Naruto quiere ser un ninja, pero no uno cualquiera: quiere ser Hokage, el líder de la aldea. En su camino, sus convicciones atraerán a muchos amigos y compañeros de viaje.</p>
+    </article>
+    <article>
+      <p>La Aldea Oculta de la Hoja (木ノ葉隠れの里, Konohagakure no Sato) es una de las cinco grandes aldeas ninjas del manga y anime Naruto. Se encuentra en el País del Fuego, en el universo ficticio que sustenta a la serie. Esta aldea es sin duda la más importante en la historia, en tanto que el protagonista y la mayor parte de los personajes secundarios pertenecen a ella. Está habitada sólo en parte por ninjas, puesto que el resto de personas son civiles sin entrenamiento que se dedican a todos los oficios imaginables. La mayor parte de los niños reciben sin embargo un aprendizaje primario ninja en la Academia de la aldea. Su líder ostenta el título de Hokage, puesto ocupado por el mejor ninja. La aldea está enteramente amurallada, y en su centro se encuentra una gran montaña en cuya ladera principal están talladas las caras de todos los Hokages. Incluso la de Tsunade, Quinta Hokage, electa durante el transcurso de la serie, es puesta ahí en el tiempo que separa las dos partes de la historia.</p>
+    </article>
+    </section>
+    <img id="konoha" src="imagenes/konoha.jpg" alt="Imagen de la aldea">
+  </div>
+  <footer>
+    <a class="linkMail" href="mailto:fedeorquinn@gmail.com">Federico orquin</a>
+  </footer>
+</body>
+</html>

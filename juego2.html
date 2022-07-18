@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Juego 2</title>
+<link rel="stylesheet" type="text/css" href="estilos.css">
+,<script>
+    function spoilerkurama(){
+    alert('Cuidado, puede sufrir graves spoilers si lee esta informacion');
+   }
+
+   function spoilersasuke(){
+    alert('Cuidado, puede sufrir graves spoilers si lee esta informacion');
+   }
+   function exp2(){
+     alert('Este es un juego de preguntas con posibilidad de responder con verdadero o falso.');
+   }
+</script>
+
+<script>
+
+//dados
+    //declaro las variables que voy a usar
+    var dado1;
+    var dado2 ;
+    var dado3 ;
+    var dado1pc;
+    var dado2pc;
+    var dado3pc;
+    var puntos=0
+    var puntospc=0;
+    var asignado= 5;
+    var asignadopc= 6;
+    var ronda=0;
+    var rondapc=0;
+    var bandera=new Array;
+    bandera.push('0');
+    var i=0;
+    var banderapc=new Array;
+    banderapc.push('0');
+    var j=0;
+
+    //tirada pc
+   function rollpc(){
+
+        var dado1pc = Math.floor(Math.random() * 6) + 1;
+        var dado2pc = Math.floor(Math.random() * 6) + 1;
+        var dado3pc = Math.floor(Math.random() * 6) + 1;
+        document.getElementById("resultadopc").innerHTML= dado1pc;
+        document.getElementById("resultadopc2").innerHTML= dado2pc;
+        document.getElementById("resultadopc3").innerHTML= dado3pc;
+
+
+
+    //comparo resultados pc
+    if(puntospc > 15 ){
+        j--;
+        puntospc= banderapc[j];
+        alert('naruto se paso, ahora es tu turno');
+        document.getElementById('botondados').style.visibility="visible";
+
+    }
+    else if(puntospc < 15){
+
+    if(dado1pc == asignadopc){
+        puntospc++;
+    }
+    if(dado2pc == asignadopc){
+        puntospc++;
+    }
+    if(dado3pc == asignadopc){
+        puntospc++;
+    }
+    if(dado1pc+dado2pc  == asignadopc || dado1pc+dado3pc == asignadopc || dado2pc+dado3pc == asignadopc){
+        puntospc++;
+    }
+    if(dado1pc == dado2pc && dado1pc == dado3pc){
+        puntospc+=5;
+    }
+
+    if(banderapc[j] == puntospc){
+        document.getElementById('botondados').style.visibility="visible";
+        alert('Naruto perdio, ahora es tu turno');
+    }
+    else{
+        j++;
+        banderapc[j]=puntospc;
+        rollpc();
+    }
+    }
+    else if(puntospc == 15){
+      alert('Naruto gano la partida');
+    }
+    
+    document.getElementById("puntajepc").innerHTML=puntospc;
+   }
+
+
+
+    //la tirada de dados
+    function roll(){
+        var dado1 = Math.floor(Math.random() * 6) + 1;
+        var dado2 = Math.floor(Math.random() * 6) + 1;
+        var dado3 = Math.floor(Math.random() * 6) + 1;
+        document.getElementById("resultado1").innerHTML= dado1;
+        document.getElementById("resultado2").innerHTML= dado2;
+        document.getElementById("resultado3").innerHTML= dado3;
+
+
+    //comparo los resultados
+   
+     if(puntos  > 15){
+        alert('Te pasaste');
+        document.getElementById('botondados').style.visibility="hidden";
+        i--;
+        puntos=bandera[i];
+        rollpc();
+
+    }
+    else if(puntos < 15){
+
+
+    if(dado1 == asignado ){
+        puntos++;
+    }
+    if(dado2 == asignado){
+        puntos++;
+    }
+    if(dado3 == asignado){
+        puntos++;
+    }
+    if(dado1+dado2 == asignado || dado1+dado3 ==asignado || dado2+dado3 ==asignado){
+        puntos++;
+    }
+    if(dado1 == dado2 &&  dado1 == dado3){
+        puntos+=5;
+    }
+
+
+    if(bandera[i] == puntos){
+
+            document.getElementById('botondados').style.visibility="hidden";
+            alert('Perdiste tu turno');
+            rollpc();
+    }
+    else{
+        i++;
+        bandera[i]=puntos;
+    }
+    }
+    else if(puntos == 15){
+        alert('Ganaste la partida');
+     }
+     //muestro los resultados del puntaje
+     document.getElementById("puntaje").innerHTML=puntos;
+    }
+
+</script>
+</head>
+<body>
+  <header>
+    <h1 class="titulo">Naruto</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a onclick="exp2()" href="juego1.html">Juego1</a></li>
+        <li><a href="juego2.html">Juego2</a></li>
+        <li><a onclick="spoilerkurama()" href="kurama.html">Kurama</a></li>
+        <li><a onclick="spoilersasuke()" href="sasuke.html">Sasuke</a></li>
+      </ul>
+    </nav>
+  </header>
+
+    <!--Muestro los resultados-->
+<section class="columnas">
+    <article>
+    <h2>Jugador</h2>
+    <p>Dados</p>
+    <p id="resultado1"></p>
+   <p id="resultado2"></p>
+   <p id="resultado3"></p>
+   <p>Numero asignado</p>
+   <p>5</p>
+   <p>Puntaje</p>
+   <p id="puntaje"></p>
+   <button id="botondados" onclick="roll()" style="visibility: visible;">Tirar dados</button>
+</article>
+<img id="naruto" src="imagenes/naruto.jpg" alt="ninja">
+<article>
+ <h2>Computadora</h2>
+   <p>Dados</p>
+   <p id="resultadopc"></p>
+   <p id="resultadopc2"></p>
+   <p id="resultadopc3"></p>
+   <p>Numero asignado</p>
+   <p>6</p>
+   <p>Puntaje</p>
+   <p id="puntajepc"></p>
+ </article>
+</section>
+
+</body>
+</html>
